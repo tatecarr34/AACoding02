@@ -1,16 +1,24 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="apple-mobile-web-app-title" content="CodePen">
-<title> - AACodeing04-2</title>
+<title>CodePen - -2</title>
 <style>
 .correct{
-  background:lightgreen;
+  background:green;
 }
 
 .incorrect{
   background:red;
+}
+HTML{
+  background:skyBlue;
+}
+h1{
+  background:White;
 }
 </style>
 </head>
@@ -18,11 +26,11 @@
 <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <audio id="sad" controls>
-<source src="snd/sad.mp3" type="audio/mpeg">
+<source src="https://math.seattleacademy.org/garyanderson/snd/sad.mp3" type="audio/mpeg">
 </audio>
 <div>Timer: <span id="theTimer">0</span> Score: <span id="score">0</span></div>
-</div>
-<h1>Tate's 10 favorite math problem</h1>
+<h1>Tate's Hot Math Problems</h1>
+<h1>(radical sign = option/alt v))</h1>
 <ol>
 <li>\( \sqrt[4]{16} + \sqrt[3]{64} \)
 <input data-correct="6" />
@@ -45,7 +53,9 @@
 <li>\( \sqrt{4} + \sqrt{2} \)
 <input data-correct="2+√2" />
 </li>
-</ol>
+<ol>
+<p style="font-size:100px" id='smiley'>&#128540;</p>
+<span style='font-size:100px' id='mad'>&#128545;</span>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
 <script id="rendered-js">
 const sad = document.getElementById("sad");
@@ -68,11 +78,17 @@ function onChange(evt) {
     $(this)
       .removeClass("incorrect")
       .addClass("correct");
+     $("#smiley").show();
+    $("#mad").hide();
+    
   } else {
+        $("#smiley").hide();
+    $("#mad").show();
+
     $(this)
       .removeClass("correct")
       .addClass("incorrect");
-    if (Math.random() > 0.9) {
+    if (Math.random() > .9) {
       sad.play();
     }
   }
